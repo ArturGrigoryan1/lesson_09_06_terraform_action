@@ -10,7 +10,7 @@ data "aws_ami" "Latest_Ubuntu_22" {
 resource "aws_instance" "ec2" {
     ami = data.aws_ami.Latest_Ubuntu_22.id
     instance_type = "t2.micro"   
-    user_data = "${file("${var.file_data}")}"   
+    user_data = "${var.file_data}"
     tags = {
       Name = var.instance_name
     }
